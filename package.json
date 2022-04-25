@@ -1,0 +1,61 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "GraphQL & Auth Backend for the Covid Tracker",
+  "main": "server.js",
+  "author": "Bhallamudi Sai Narasimha Abhiram",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "start": "node dist/server.js",
+    "dev": "nodemon --exec npx babel-node src/server.js",
+    "prettier": "prettier --config ./.prettierrc --write \"**/*.js\"",
+    "pretest": "eslint --ignore-path .gitignore .",
+    "postinstall": "rm -rf dist && yarn run build",
+    "lint": "yarn prettier --write --check --config ./.prettierrc \"**/*.js\" && eslint --fix ./src",
+    "release": "release-it patch --no-npm.publish",
+    "loadData": "node src/utils/loadData.mjs"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
+  "dependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "apollo-engine": "^1.1.2",
+    "apollo-server-express": "^3.6.7",
+    "argon2": "^0.28.5",
+    "axios": "^0.26.1",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "graphql": "^16.3.0",
+    "graphql-compose": "^9.0.8",
+    "graphql-compose-connection": "^8.2.1",
+    "graphql-compose-mongoose": "^9.7.1",
+    "graphql-middleware": "^6.1.25",
+    "graphql-tools": "^8.2.8",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.1",
+    "mongoose-bcrypt": "^1.9.0",
+    "mongoose-timestamp": "^0.6.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.5",
+    "babel-preset-env": "^1.7.0",
+    "dotenv": "^16.0.0",
+    "eslint": "^8.14.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "fs-extra": "^10.1.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.2"
+  }
+}

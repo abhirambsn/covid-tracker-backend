@@ -7,4 +7,4 @@
 - GET: / (graphql playground)
 - GET: /cases/load (Loads Data from API to Database (MongoDB Atlas))
 
-**Link to Deployed Version: []()**
+**Link to Deployed Version: [https://covid-tracker-ab.herokuapp.com/](https://covid-tracker-ab.herokuapp.com/)**
